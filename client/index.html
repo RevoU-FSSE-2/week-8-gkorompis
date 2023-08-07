@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./index.css">
+    <title>How Much?</title>
+</head>
+<body>
+    <div class="div-app-service">
+        <header id="header-service-navbar" class="header-service-navbar">
+            <!-- <a class="logo-title" href="./index.html">How Much?</a> -->
+            <img class="navbar-icon" src="./assets/home.png"/>
+            <div class="dropdown">
+                <button class="dropbtn dropbtn-display">Records</button>
+                <div class="dropdown-content">
+                    <a class="nav-links" href="./html/Records/cashflow.html">Transactions</a>
+                    <a class="nav-links" href="#">Mutation</a>
+                </div>
+            </div>
+        </header>
+        <main id="main-service-board" class="main-service-board">
+            <section class="section-service-board-header fixed-top">
+                <h1 class="board-header-title">How Much?</h1>
+                <div class="board-bar-span"></div>
+                <section class="board-bar">
+                    <button id="btn-new-transaction" class="board-btn">New Transaction</button>
+                </section>
+            </section>
+            <section id="section-service-board-modal" class="section-service-board-modal">
+                <div id="board-modal-container" class="board-modal-container board-modal-container-hide">
+                    <div class="board-modal-content">
+                        <h2 class="modal-title">New Transaction</h2>
+                        <form class="form-request">
+                            <label class="form-request-label" htmlFor="form-request-name">How much:</label>
+                            <input id="form-request-amount" class="form-request-input" type="text" name="how-much" placeholder=" " />
+                            <label class="form-request-label" htmlFor="form-request-date">Transaction Date:</label>
+                            <input id="form-request-date" class="form-request-input" type="date" name="date" placeholder=" " />
+                            <label class="form-request-label" for="lang">Wallet</label>
+                            <select name="wallet" id="form-request-wallet" class="form-request-select">
+                                <option hidden disabled selected value style="display:none"> -- select wallet -- </option>
+                                <option class="form-request-option" value="Cash In">Monthly Income</option>
+                                <option class="form-request-option" value="Cash Out">Mandiri</option>
+                                <option class="form-request-option" value="Cash Out">BCA</option>
+                                <option class="form-request-option" value="Cash Out">Part Time Income</option>
+                            </select>
+                            <label class="form-request-label" for="lang">Pocket</label>
+                            <select name="pocket" id="form-request-pocket" class="">
+                                <option hidden disabled selected value style="display:none"> -- select pocket -- </option>
+                                <option class="form-request-option" value="Cash Out">Family & House</option>
+                                <option class="form-request-option" value="Cash Out">Food & Beverage</option>
+                                <option class="form-request-option" value="Cash Out">Entertainment</option>
+                                <option class="form-request-option" value="Cash Out">Utilities</option>
+                            </select>
+                            <label class="form-request-label" htmlFor="form-request-tag">Tag</label>
+                            <input id="form-request-tag" class="form-request-input" type="text" name="firstname"
+                                placeholder=" " />
+                            <label class="form-request-label" htmlFor="form-request-details">Details</label>
+                            <input id="form-request-details" class="form-request-input" type="text" name="firstname"
+                                placeholder=" " />
+                            <input type="button" id="btn-submit-asset" class="board-btn" value="Submit" />
+                        </form>
+                    </div>
+                </div>
+            </section>
+            <section class="section-service-board-content">
+                <section class="board-content-section board-transactions">
+                    <h1 class="board-section-title">Latest Transactions</h1>
+                    <div id="board-card-transactions" class="board-card-transactions">
+                        <!-- <h1>card</h1> -->
+                    </div>
+                </section>
+                <section class="board-content-section board-stats">
+                    <h1 class="board-section-title">How Much summary</h1>
+                    <div class="stats-container">
+                        <div class="board-section-stats stats-wallet">
+                            <h1>Wallet Stats</h1>
+                            <div class="wallets-container">
+                                <div class="wallet">
+                                    <p class="wallet-title">Wallet A</p>
+                                    <div class="wallet-bar-container">
+                                        <div class="wallet-bar"></div>
+                                        <div class="wallet-bar"></div>
+                                        <div class="wallet-bar"></div>
+                                        <div class="wallet-bar"></div>
+                                    </div>
+                                </div>
+                                <div class="wallet">
+                                    <p class="wallet-title">Wallet B</p>
+                                    <div class="wallet-bar-container">
+                                        <div class="wallet-bar"></div>
+                                        <div class="wallet-bar"></div>
+                                        <div class="wallet-bar"></div>
+                                        <div class="wallet-bar"></div>
+                                    </div>
+                                </div>
+                                <div class="wallet">
+                                    <p class="wallet-title">Wallet C</p>
+                                        <div class="wallet-bar-container">
+                                        <div class="wallet-bar"></div>
+                                        <div class="wallet-bar"></div>
+                                        <div class="wallet-bar"></div>
+                                        <div class="wallet-bar"></div>
+                                    </div>
+                                </div>
+                                <div class="wallet">
+                                    <p class="wallet-title">Wallet D</p>
+                                    <div class="wallet-bar-container">
+                                        <div class="wallet-bar"></div>
+                                        <div class="wallet-bar"></div>
+                                        <div class="wallet-bar"></div>
+                                        <div class="wallet-bar"></div>
+                                    </div>
+                                </div>    
+                            </div>
+                        </div>
+                        <div class="board-section-stats stats-pocket">
+                            <h1 class="stats-pocket-title">Pocket Stats</h1>
+                            <div class="pockets-container">
+                                <div class="pocket">
+                                    <p class="pocket-title">Pocket Spending</p>
+                                    <div class="pocket-bar-container">
+                                        <div class="pie"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </section>
+        </main>
+    </div>
+    <!-- <footer>
+        <a href="https://www.flaticon.com/free-icons/home" title="home icons">Home icons created by Dave Gandy - Flaticon</a>
+    </footer> -->
+    <script src="./dist/transactions.js"></script>
+</body>
+
+</html>
