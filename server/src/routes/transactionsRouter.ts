@@ -4,7 +4,7 @@ const app = express();
 app.use(express.json());
 
 // interfaces
-interface NewTransactionPayload {
+type NewTransactionPayload = {
    transactionAmount: Number;
    transactionDate: String;
    transactionWallet: String;
