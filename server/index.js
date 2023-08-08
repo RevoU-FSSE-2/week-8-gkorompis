@@ -6,6 +6,6 @@ const app = express();
 app.use(express.json());
 app.use("/transactions", transactionsRouter);
 app.get("/hello", (req, res) => {
-    res.send("hello world!");
+    res.send("hello world! new alias");
 });
 export const handler = serverless(app);
