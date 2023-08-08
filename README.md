@@ -1,14 +1,14 @@
-# [Wisespent](https://64cd3acbdad64a3cc32bab3c--playful-pavlova-3da57a.netlify.app)
+# [How Much?](https://64cd3acbdad64a3cc32bab3c--playful-pavlova-3da57a.netlify.app)
 
 <img width="1417" alt="home" src="https://github.com/RevoU-FSSE-2/week-7-gkorompis/assets/52250424/b222270e-9a3a-4323-a03d-bb188b40a405">
 
 ## Introduction
 
-Wisespent is a user-friendly Finance App designed to help you track your cash flow effectively. It offers a simple and intuitive interface to record your income and expenses, providing you with valuable insights into your financial habits.
+How Much? is a user-friendly Finance App designed to help you track your cash flow effectively. It offers a simple and intuitive interface to record your income and expenses, providing you with valuable insights into your financial habits.
 
 ### Main Feature - Record
 
-The primary feature of Wisespent is the "Record" section, where you can easily add and manage your income and expenses. You can categorize your transactions, add notes, and track your financial activities over time.
+The primary feature of How Much? is the "Record" section, where you can easily add and manage your income and expenses. You can categorize your transactions, add notes, and track your financial activities over time.
 ### Section Cash Flow directs to tracking page
 <img width="1419" alt="cashflow" src="https://github.com/RevoU-FSSE-2/week-7-gkorompis/assets/52250424/0eb8e053-fcd1-42a7-a9a8-457bb6110733">
 
@@ -23,7 +23,7 @@ The primary feature of Wisespent is the "Record" section, where you can easily a
 
 ## Dependencies
 
-Wisespent is built using web technologies - HTML, vanilla CSS, and TypeScript. The following dependencies are required to run the app:
+How Much? is built using web technologies - HTML, vanilla CSS, and TypeScript. The following dependencies are required to run the app:
 
 - HTML: The standard markup language for creating the structure of the app's user interface.
 - CSS: Cascading Style Sheets for styling the app and ensuring a visually appealing user experience.
@@ -54,7 +54,7 @@ The compiled JavaScript files will be outputted to the `dist` folder, as configu
 
 ## Deployment using Netlify
 
-Wisespent can be easily deployed using Netlify, a popular platform for hosting static websites. Follow these steps to deploy the app:
+How Much? can be easily deployed using Netlify, a popular platform for hosting static websites. Follow these steps to deploy the app:
 
 1. Connect to Git provider
 2. Pick a repository
@@ -64,4 +64,4 @@ Wisespent can be easily deployed using Netlify, a popular platform for hosting s
 
 For any questions or support, please contact us at support@wisespentapp.com.
 
-Happy budgeting with Wisespent! 🌟
+Happy budgeting with How Much?! 🌟

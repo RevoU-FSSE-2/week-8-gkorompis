@@ -85,12 +85,12 @@ const addTransactionCards = () => {
         newCard.appendChild(transactionWallet);
         newCard.appendChild(transactionPocket);
         newCard.appendChild(transactionTag);
-        console.log('>>new card', newCard);
+        // console.log('>>new card', newCard);
         let boardCardTransactions = document.getElementById('board-card-transactions');
         cardContainer === null || cardContainer === void 0 ? void 0 : cardContainer.appendChild(cardSpan);
         cardContainer === null || cardContainer === void 0 ? void 0 : cardContainer.appendChild(newCard);
         boardCardTransactions === null || boardCardTransactions === void 0 ? void 0 : boardCardTransactions.appendChild(cardContainer);
-        console.log('>>list transactions', boardCardTransactions);
+        // console.log('>>list transactions', boardCardTransactions);
     });
 };
 const submitTransactionButtonHandler = (event) => {

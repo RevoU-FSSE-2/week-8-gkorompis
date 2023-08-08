@@ -99,13 +99,13 @@ const addTransactionCards = () =>{
         newCard.appendChild(transactionWallet);
         newCard.appendChild(transactionPocket);
         newCard.appendChild(transactionTag);
-        console.log('>>new card', newCard);
+        // console.log('>>new card', newCard);
 
         let boardCardTransactions = document.getElementById('board-card-transactions');
         cardContainer?.appendChild(cardSpan);
         cardContainer?.appendChild(newCard);
         boardCardTransactions?.appendChild(cardContainer);
-        console.log('>>list transactions', boardCardTransactions);
+        // console.log('>>list transactions', boardCardTransactions);
 
         }) 
 };
