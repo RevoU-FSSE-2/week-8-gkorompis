@@ -1,4 +1,5 @@
 import express from 'express';
+import mdbInsertOne from '../db/fetch.js';
 
 const app = express();
 app.use(express.json());
@@ -19,10 +20,11 @@ const transactionsRouter = express.Router();
 transactionsRouter.get('/', (req, res)=>{
     res.json("GET Transactions route new alias")
 });
-transactionsRouter.post('/', (req, res)=>{
+transactionsRouter.post('/', async (req, res)=>{
     try {
-      
         const newTransaction:NewTransactionPayload = req.body;
+        console.log("inserting", newTransaction);
+        await mdbInsertOne("transactions",newTransaction);
         res.status(201).json(newTransaction);
     } catch (err){
         res.status(400).json({error: `Bad request. ${err}`})
