@@ -8,4 +8,8 @@ app.use("/transactions", transactionsRouter);
 app.get("/hello", (req, res) => {
     res.send("hello world! new alias");
 });
+//for testing
+app.listen(5001, () => {
+    console.log('server is listening at port 5001 test2');
+});
 export const handler = serverless(app);
