@@ -8,14 +8,16 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 import express from 'express';
-import mdbInsertOne from '../db/fetch.js';
+import mdbInsertOne from '../db/post.js';
+import mdbFetchMany from '../db/get.js';
 const app = express();
 app.use(express.json());
 //routes
 const transactionsRouter = express.Router();
-transactionsRouter.get('/', (req, res) => {
-    res.json("GET Transactions route new alias");
-});
+transactionsRouter.get('/', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    const payload = yield mdbFetchMany("transactions");
+    res.json(payload);
+}));
 transactionsRouter.post('/', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const newTransaction = req.body;

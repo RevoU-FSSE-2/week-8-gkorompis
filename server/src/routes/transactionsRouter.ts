@@ -1,5 +1,6 @@
 import express from 'express';
-import mdbInsertOne from '../db/fetch.js';
+import mdbInsertOne from '../db/post.js';
+import mdbFetchMany from '../db/get.js';
 
 const app = express();
 app.use(express.json());
@@ -17,8 +18,9 @@ type NewTransactionPayload = {
 //routes
 const transactionsRouter = express.Router();
 
-transactionsRouter.get('/', (req, res)=>{
-    res.json("GET Transactions route new alias")
+transactionsRouter.get('/', async (req, res)=>{
+    const payload = await mdbFetchMany("transactions");
+    res.json(payload);
 });
 transactionsRouter.post('/', async (req, res)=>{
     try {

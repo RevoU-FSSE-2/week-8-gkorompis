@@ -1,9 +1,8 @@
 // Import the required modules
 import { MongoClient, Db, Collection, InsertOneResult} from 'mongodb';
-import dotenv from 'dotenv';
+import './loadenv.js';
 
-dotenv.config();
-const SECRET = process.env.MONGODB_SECRET;
+const SECRET = process.env.MONGODB_SECRET
 
 // Define a function to connect to the MongoDB database
 async function connectToMongoDB(): Promise<Db> {
@@ -79,4 +78,24 @@ const createMdbCollection = async (collection_name:string) =>{
     }
 };
 
-createMdbCollection('transactions');
+// createMdbCollection('transactions');
+const fetchDocuments = async (collection_name:string) =>{
+    try {
+        //connecting to mongodb
+        console.log(">>>connecting to mongodb")
+        const db = await connectToMongoDB();
+
+         // create new Collection
+        console.log(">>>creating collection", collection_name)
+        // const newCollection =  await db.collection(collection_name);
+        const newCollection = await db.collection(collection_name);
+        console.log(">>>SUCCESS: new collection is made", newCollection);
+        // const newCollection = db.transactions.find();
+        // console.log(">>>SUCCESS: new collection is made", newCollection);
+        // const usersCollection: Collection<cashflowRecord> = db.collection<cashflowRecord>('users');
+    } catch (err) {
+        console.log("error:", err);
+    }
+};
+
+fetchDocuments('transactions');

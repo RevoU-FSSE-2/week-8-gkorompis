@@ -1,8 +1,11 @@
-// Import the required modules
-import { MongoClient, Db, Collection, InsertOneResult} from 'mongodb';
-import dotenv from 'dotenv';
+// import express from 'express';
+// import { MongoClient, Db, Collection, InsertOneResult} from 'mongodb';
 
-dotenv.config();
+
+// Import the required modules
+import { MongoClient, Db, Collection, FindCursor, WithId} from 'mongodb';
+import '../loadenv.js'
+// console.log(process.env.TEST_VAR);
 const SECRET = process.env.MONGODB_SECRET;
 
 
@@ -12,7 +15,7 @@ async function connectToMongoDB(): Promise<Db> {
 const uri = SECRET || '' // Update with your MongoDB connection string
 const client = new MongoClient(uri);
 
-  try {
+try {
     // Connect to the MongoDB server
     await client.connect();
     console.log('Connected to MongoDB successfully');
@@ -35,11 +38,11 @@ type NewTransactionPayload = {
    transactionTag: String;
    transactionDetails: String;
 }
-interface InsertResultWithOps<T> extends InsertOneResult<T> {
-  ops: T[];
-}
+// interface InsertResultWithOps<T> extends InsertOneResult<T> {
+//   ops: T[];
+// }
 
-const mdbInsertOne = async (collection:string, payload:NewTransactionPayload)=> {
+const mdbFetchMany = async (collection:string)=>{
   try {
     // Connect to MongoDB
     console.log(">>>connecting to mongodb")
@@ -47,15 +50,20 @@ const mdbInsertOne = async (collection:string, payload:NewTransactionPayload)=> 
 
     // Get the collection to work with
     console.log(`>>>connecting to ${collection} collection`)
-    const newCollection: Collection<NewTransactionPayload> = db.collection<NewTransactionPayload>(collection);
+    const newCollection: Collection<NewTransactionPayload> = await db.collection<NewTransactionPayload>(collection);
 
-    console.log('>>>inserting payload:', payload,"into collection:", collection );
+    console.log('>>>fetching collection:', collection );
     // console.log(usersCollection);
-    const post = await newCollection.insertOne(payload) as InsertResultWithOps<NewTransactionPayload>;
-    console.log('>>>insert success');
+    const fetch = newCollection.find({});
+    const documents = await fetch.toArray();
+    // const cursor = newCollection.find({});
+
+    
+    console.log('>>>fetch success', documents);
+    return documents;
   } catch (err) {
     console.error('Error:', err);
   }
 };
 
-export default mdbInsertOne;
+export default mdbFetchMany;
