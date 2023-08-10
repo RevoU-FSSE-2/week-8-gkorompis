@@ -17,6 +17,59 @@ How Much? is a user-friendly Finance App designed to help you track your cash fl
 
 ## 3. Application Overview
 
+### 3.1 Main Feature
+### 3.2 Dependencies
+### 3.3 API Documentation
+1. BaseURL:
+```
+https://2oztga8zl7.execute-api.ap-southeast-3.amazonaws.com/dev
+```
+
+2. GET endpoints:
+```
+<baseurl>/transactions
+# fetch all documents, require query "bearer=true" try <baseurl>/transactions?bearer=true
+
+/transactions/:ObjectID
+# fetch one document based on ObjectId, try <baseurl>/transactions/64d36c34b2cba04b48d16dce
+```
+<img width="1391" alt="get id" src="https://github.com/RevoU-FSSE-2/week-8-gkorompis/assets/52250424/24253f39-2f9a-4433-8fd2-13d4d20c448e">
+
+3. POST endpoint:
+```
+<baseurl>/transactions/
+# try <baseurl>/transactions?bearer=true
+# body example:
+{
+   "transactionAmount": 133,
+   "transactionDate": "13-08-2023",
+   "transactionWallet": "Monthly Income",
+   "transactionPocket": "Holiday",
+   "transactionTag": "Jalan-jalan",
+   "transactionDetails": "Have fun"
+}
+#Note your New Object ID 
+```
+<img width="1422" alt="post" src="https://github.com/RevoU-FSSE-2/week-8-gkorompis/assets/52250424/0d396a17-737f-476e-adc7-6e733544a1a7">
+
+4. PUT endpoint:
+```
+<baseurl>/transactions/:ObjectID
+# update one document, require query "bearer=true" try <baseurl>/transactions/<foo>?bearer=true
+# body example:
+{
+   "transactionDetails": "Vacation"
+}
+```
+<img width="1385" alt="put" src="https://github.com/RevoU-FSSE-2/week-8-gkorompis/assets/52250424/441a53d8-0384-4ee6-88aa-70e153ef1312">
+
+5. DELETE endpoint:
+```
+<baseurl>/transactions/:ObjectID
+# update one document, require query "bearer=true" try <baseurl>/transactions/<foo>?bearer=true
+```
+<img width="1392" alt="delete" src="https://github.com/RevoU-FSSE-2/week-8-gkorompis/assets/52250424/16fc1e9c-3faf-43c3-bde9-f21316f6bdc4">
+
 ## 4. Cloud-computing Preparation
 
 This application requires several pre-deployment set ups. In order to promote instant provision and ensure a consistent dependencies and deployment, AWS cloud virtual machine (EC2) will be used to run docker for all necessary pre-deployment build. 
