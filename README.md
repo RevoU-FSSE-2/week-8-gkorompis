@@ -6,6 +6,7 @@
 
 How Much? is a user-friendly Finance App designed to help you track your cash flow effectively. It offers a simple and intuitive interface to record your income and expenses, providing you with valuable insights into your financial habits.
 
+
 ## 2. Documentation Contents
 
 1. Introduction
@@ -14,6 +15,7 @@ How Much? is a user-friendly Finance App designed to help you track your cash fl
 4. Cloud-computing Preparation
 5. Client-side Build and Deployment
 6. Server-side Build and Deployment
+
 
 ## 3. Application Overview
 
@@ -70,6 +72,7 @@ https://2oztga8zl7.execute-api.ap-southeast-3.amazonaws.com/dev
 ```
 <img width="1392" alt="delete" src="https://github.com/RevoU-FSSE-2/week-8-gkorompis/assets/52250424/16fc1e9c-3faf-43c3-bde9-f21316f6bdc4">
 
+
 ## 4. Cloud-computing Preparation
 
 This application requires several pre-deployment set ups. In order to promote instant provision and ensure a consistent dependencies and deployment, AWS cloud virtual machine (EC2) will be used to run docker for all necessary pre-deployment build. 
@@ -113,6 +116,7 @@ docker build . -t mongodb-collection:1.0
 docker run -p 3001:3001 mongodb-collection:1.0
 ```
 Once the container starts running, it will create "transactions" collection that in this project will be used to store any data related to transactions process.
+
 
 ## 5. Server-side Build and Deployment
 Server side involves, transpiling typescript files into javascript and then compress the whole script together with node_modules into a zip file. This zip file is necessary to deploy express api routes using AWS lambda and AWS API Gateway.
@@ -169,5 +173,6 @@ chmod 777 ../workflow/aws_lambda_deployment.sh
 <img width="1395" alt="5 2 11" src="https://github.com/RevoU-FSSE-2/week-8-gkorompis/assets/52250424/28f9876a-4609-47b9-a8c9-001cba41f22a">
 
 12. Your Base URL is ready, usually will be appeared on the top of the page.
+
 
 ## 6. Client-side Build and Deployment
