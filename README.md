@@ -48,6 +48,19 @@ cd week-8-gkorompis
 
 In this project, docker only will be used to build and create mongodb collection. Therefore Node.js and npm must be installed in your working enviroment. Instructions to set up can follow the official documentation from both services.
 
+### 4.3 Build mongodb collection
+
+1. Direct to dockerfile directory, and then build image
+```
+cd ~/workflow/BuildMongoDB
+docker build . -t mongodb-collection:1.0
+```
+2. Run the image
+```
+docker run -p 3001:3001 mongodb-collection:1.0
+```
+Once the container starts running, it will create "transactions" collection that in this project will be used to store any data related to transactions process.
+
 ## 5. Server-side Build and Deployment
 Server side involves, transpiling typescript files into javascript and then compress the whole script together with node_modules into a zip file. This zip file is necessary to deploy express api routes using AWS lambda and AWS API Gateway.
 
