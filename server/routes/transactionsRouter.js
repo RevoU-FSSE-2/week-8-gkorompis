@@ -8,14 +8,30 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 import express from 'express';
-import mdbInsertOne from '../db/post.js';
-import mdbFetchMany from '../db/get.js';
+import { ObjectId } from 'mongodb';
+import MdbCrud from '../db/mdbCrud.js';
+const crud = new MdbCrud();
+const { mdbDeleteOne, mdbFetchMany, mdbInsertOne, mdbUpdateOne } = crud;
 const app = express();
 app.use(express.json());
 //routes
 const transactionsRouter = express.Router();
 transactionsRouter.get('/', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
-    const payload = yield mdbFetchMany("transactions");
+    const query = req.query || {};
+    const { bearer } = query;
+    if (bearer) {
+        delete query.bearer;
+        const payload = yield mdbFetchMany("transactions", query);
+        res.json(payload);
+    }
+    else {
+        res.json({ error: "no bearer" });
+    }
+}));
+transactionsRouter.get('/:transactionId', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    const { transactionId } = req.params;
+    const query = { _id: new ObjectId(transactionId) } || {};
+    const payload = yield mdbFetchMany("transactions", query);
     res.json(payload);
 }));
 transactionsRouter.post('/', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
@@ -26,31 +42,51 @@ transactionsRouter.post('/', (req, res) => __awaiter(void 0, void 0, void 0, fun
         res.status(201).json(newTransaction);
     }
     catch (err) {
+        res.status(500).json({ error: `Bad request. ${err}` });
+    }
+}));
+transactionsRouter.put('/:transactionId', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    try {
+        // console.log(req);
+        // get unique id from req params
+        const { transactionId } = req.params;
+        const query = { _id: new ObjectId(transactionId) } || {};
+        // get uri queries
+        const routeQuery = req.query || {};
+        const { bearer } = routeQuery;
+        if (bearer) {
+            // get request body payload
+            const newTransaction = req.body;
+            const payload = yield mdbUpdateOne("transactions", query, newTransaction);
+            res.json(payload);
+        }
+        else {
+            res.json({ error: "no bearer" });
+        }
+    }
+    catch (err) {
         res.status(400).json({ error: `Bad request. ${err}` });
     }
 }));
-transactionsRouter.put('/:transactionId', (req, res) => {
+transactionsRouter.delete('/:transactionId', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         // console.log(req);
-        // const params = req.params;
+        // get unique id from req params
         const { transactionId } = req.params;
-        const newTransaction = req.body;
-        res.status(201).json({ transactionId, newTransaction, message: `updating ${transactionId} for ${newTransaction.transactionAmount}` });
+        const query = { _id: new ObjectId(transactionId) } || {};
+        // get uri queries
+        const routeQuery = req.query || {};
+        const { bearer } = routeQuery;
+        if (bearer) {
+            const payload = yield mdbDeleteOne("transactions", query);
+            res.json(payload);
+        }
+        else {
+            res.json({ error: "no bearer" });
+        }
     }
     catch (err) {
         res.status(400).json({ error: `Bad request. ${err}` });
     }
-});
-transactionsRouter.delete('/:transactionId', (req, res) => {
-    try {
-        // console.log(req);
-        // const params = req.params;
-        const { transactionId } = req.params;
-        const newTransaction = req.body;
-        res.status(201).json({ transactionId, newTransaction, message: `deleting ${transactionId} for ${newTransaction.transactionAmount}` });
-    }
-    catch (err) {
-        res.status(400).json({ error: `Bad request. ${err}` });
-    }
-});
+}));
 export default transactionsRouter;

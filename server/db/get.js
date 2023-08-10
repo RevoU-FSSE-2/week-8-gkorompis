@@ -36,7 +36,7 @@ function connectToMongoDB() {
 // interface InsertResultWithOps<T> extends InsertOneResult<T> {
 //   ops: T[];
 // }
-const mdbFetchMany = (collection) => __awaiter(void 0, void 0, void 0, function* () {
+const mdbFetchMany = (collection, query) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         // Connect to MongoDB
         console.log(">>>connecting to mongodb");
@@ -46,7 +46,7 @@ const mdbFetchMany = (collection) => __awaiter(void 0, void 0, void 0, function*
         const newCollection = yield db.collection(collection);
         console.log('>>>fetching collection:', collection);
         // console.log(usersCollection);
-        const fetch = newCollection.find({});
+        const fetch = newCollection.find(query);
         const documents = yield fetch.toArray();
         // const cursor = newCollection.find({});
         console.log('>>>fetch success', documents);

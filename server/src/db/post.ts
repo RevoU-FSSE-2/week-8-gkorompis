@@ -1,5 +1,5 @@
 // Import the required modules
-import { MongoClient, Db, Collection, InsertOneResult} from 'mongodb';
+import { MongoClient, Db, Collection, InsertOneResult, ObjectId} from 'mongodb';
 import '../loadenv.js'
 // console.log(process.env.TEST_VAR);
 const SECRET = process.env.MONGODB_SECRET;
@@ -27,12 +27,13 @@ try {
 
 // Define an interface for the data you want to store in the collection
 type NewTransactionPayload = {
-   transactionAmount: Number;
-   transactionDate: String;
-   transactionWallet: String;
-   transactionPocket: String;
-   transactionTag: String;
-   transactionDetails: String;
+    _id?: ObjectId,
+   transactionAmount?: number;
+   transactionDate?: string;
+   transactionWallet?: string;
+   transactionPocket?: string;
+   transactionTag?: string;
+   transactionDetails?: string;
 }
 interface InsertResultWithOps<T> extends InsertOneResult<T> {
   ops: T[];

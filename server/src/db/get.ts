@@ -3,7 +3,7 @@
 
 
 // Import the required modules
-import { MongoClient, Db, Collection, FindCursor, WithId} from 'mongodb';
+import { MongoClient, Db, Collection, FindCursor, WithId, ObjectId} from 'mongodb';
 import '../loadenv.js'
 // console.log(process.env.TEST_VAR);
 const SECRET = process.env.MONGODB_SECRET;
@@ -31,18 +31,19 @@ try {
 
 // Define an interface for the data you want to store in the collection
 type NewTransactionPayload = {
-   transactionAmount: Number;
-   transactionDate: String;
-   transactionWallet: String;
-   transactionPocket: String;
-   transactionTag: String;
-   transactionDetails: String;
+  _id?: ObjectId,
+   transactionAmount?: number;
+   transactionDate?: string;
+   transactionWallet?: string;
+   transactionPocket?: string;
+   transactionTag?: string;
+   transactionDetails?: string;
 }
 // interface InsertResultWithOps<T> extends InsertOneResult<T> {
 //   ops: T[];
 // }
 
-const mdbFetchMany = async (collection:string)=>{
+const mdbFetchMany = async (collection:string, query:NewTransactionPayload)=>{
   try {
     // Connect to MongoDB
     console.log(">>>connecting to mongodb")
@@ -54,11 +55,10 @@ const mdbFetchMany = async (collection:string)=>{
 
     console.log('>>>fetching collection:', collection );
     // console.log(usersCollection);
-    const fetch = newCollection.find({});
+    const fetch = newCollection.find(query);
     const documents = await fetch.toArray();
     // const cursor = newCollection.find({});
 
-    
     console.log('>>>fetch success', documents);
     return documents;
   } catch (err) {

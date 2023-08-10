@@ -1,25 +1,52 @@
 import express from 'express';
-import mdbInsertOne from '../db/post.js';
-import mdbFetchMany from '../db/get.js';
+import {ObjectId} from 'mongodb';
+import MdbCrud from '../db/mdbCrud.js';
+
+const crud = new MdbCrud();
+const {mdbDeleteOne, mdbFetchMany, mdbInsertOne, mdbUpdateOne} = crud;
 
 const app = express();
 app.use(express.json());
 
 // interfaces
 type NewTransactionPayload = {
-   transactionAmount: Number;
-   transactionDate: String;
-   transactionWallet: String;
-   transactionPocket: String;
-   transactionTag: String;
-   transactionDetails: String;
+   transactionAmount: number;
+   transactionDate: string;
+   transactionWallet: string;
+   transactionPocket: string;
+   transactionTag: string;
+   transactionDetails: string;
+}
+
+interface TransactionQuery {
+    _id?: ObjectId;
+    transactionAmount?: number;
+    transactionDate?: string;
+    transactionWallet?: string;
+    transactionPocket?: string;
+    transactionTag?: string;
+    transactionDetails?: string;
+    bearer?: string;
 }
 
 //routes
 const transactionsRouter = express.Router();
 
 transactionsRouter.get('/', async (req, res)=>{
-    const payload = await mdbFetchMany("transactions");
+    const query = req.query || {} as TransactionQuery;
+    const {bearer} = query;
+    if(bearer){
+        delete query.bearer;
+        const payload = await mdbFetchMany("transactions", query);
+        res.json(payload);
+    } else {
+        res.json({error: "no bearer"})
+    }
+});
+transactionsRouter.get('/:transactionId', async (req, res)=>{
+    const {transactionId} = req.params;
+    const query = {_id: new ObjectId(transactionId)} || {};
+    const payload = await mdbFetchMany("transactions",query);
     res.json(payload);
 });
 transactionsRouter.post('/', async (req, res)=>{
@@ -29,27 +56,49 @@ transactionsRouter.post('/', async (req, res)=>{
         await mdbInsertOne("transactions",newTransaction);
         res.status(201).json(newTransaction);
     } catch (err){
-        res.status(400).json({error: `Bad request. ${err}`})
+        res.status(500).json({error: `Bad request. ${err}`})
     }
 });
-transactionsRouter.put('/:transactionId', (req, res)=>{
+transactionsRouter.put('/:transactionId', async (req, res)=>{
     try {
         // console.log(req);
-        // const params = req.params;
+        // get unique id from req params
         const {transactionId} = req.params;
-        const newTransaction:NewTransactionPayload = req.body;
-        res.status(201).json({transactionId, newTransaction, message: `updating ${transactionId} for ${newTransaction.transactionAmount}`});
+        const query = {_id: new ObjectId(transactionId)} || {};
+        
+        // get uri queries
+        const routeQuery = req.query || {} as TransactionQuery;
+        const {bearer} = routeQuery;
+
+        if(bearer){
+            // get request body payload
+            const newTransaction:NewTransactionPayload = req.body;
+            const payload = await mdbUpdateOne("transactions", query, newTransaction);
+            res.json(payload);
+        } else {
+            res.json({error: "no bearer"})
+        }
     } catch (err){
         res.status(400).json({error: `Bad request. ${err}`})
     }
 });
-transactionsRouter.delete('/:transactionId', (req, res)=>{
+transactionsRouter.delete('/:transactionId', async (req, res)=>{
     try {
         // console.log(req);
-        // const params = req.params;
+        // get unique id from req params
         const {transactionId} = req.params;
-        const newTransaction:NewTransactionPayload = req.body;
-        res.status(201).json({transactionId, newTransaction, message: `deleting ${transactionId} for ${newTransaction.transactionAmount}`});
+        const query = {_id: new ObjectId(transactionId)} || {};
+        
+        // get uri queries
+        const routeQuery = req.query || {} as TransactionQuery;
+        const {bearer} = routeQuery;
+
+        if(bearer){
+            const payload = await mdbDeleteOne("transactions", query);
+            res.json(payload);
+        } else {
+            res.json({error: "no bearer"})
+        }
     } catch (err){
         res.status(400).json({error: `Bad request. ${err}`})
     }
