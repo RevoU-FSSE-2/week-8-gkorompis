@@ -154,7 +154,7 @@ PUT /transactions/<transaction_id>?bearer=<your_api_token>
 | `transaction_id` | `string` | **Required**. Unique string for every transaction record |
 | `bearer` | `string` | **Required**. Your API Token |
 
-##### Put/Patch One Document: Document
+##### Update One Document: Document
 ```javascript
 {
     "userId"?: string,
@@ -178,7 +178,7 @@ PUT /transactions/<transaction_id>?bearer=<your_api_token>
 | `transaction_id` | `string` | **Required**. Unique string for every transaction record |
 | `bearer` | `string` | **Required**. Your API Token |
 
-##### Delete One Document: Request Body
+##### Remove One Document: Request Body
 ```javascript
 // no request body is required
 ```
