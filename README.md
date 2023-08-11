@@ -72,7 +72,7 @@ https://2oztga8zl7.execute-api.ap-southeast-3.amazonaws.com/prod
 
 all resources under `dev` are still in progress development and not ready for staging or public access.
 
-3. ENDPOINTS:
+3. ENDPOINTS
 
 ##### GET Fetch Many Document: Endpoint
 ```http
@@ -182,7 +182,8 @@ PUT /transactions/<transaction_id>?bearer=<your_api_token>
 ```javascript
 // no request body is required
 ```
-4.  Endpoints Summary
+
+4. SUMMARY
 
 | Route         | Endpoint             | UniqueID               | Authentication      | Header        | Request Body       | Response Description             |
 | :------------ | :------------------- | :--------------------- | :------------------ | :------------ | :----------------- | :-------------------------------- |
