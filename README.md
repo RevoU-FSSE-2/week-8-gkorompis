@@ -1,6 +1,5 @@
 # [How Much?](https://64d639a9ff6c0b67556ba24b--stellar-gaufre-002876.netlify.app/)
-
-<img width="1397" alt="hm-home" src="https://github.com/RevoU-FSSE-2/week-8-gkorompis/assets/52250424/946952cd-2b1f-41f9-9ad8-5ba80d22d396">
+<img width="1397" alt="hm-home" src="https://github.com/RevoU-FSSE-2/week-8-gkorompis/assets/52250424/d39ed479-840e-4200-8dec-60ab5fad188d">
 
 ## 1. Introduction
 
