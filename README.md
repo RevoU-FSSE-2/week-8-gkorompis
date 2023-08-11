@@ -85,15 +85,18 @@ GET /transactions/?bearer=<your_api_token>
 
 ##### Fetch Many Document: Response
 ```javascript
-{
-    "userId": string,
-    "transactionAmount": number,
-    "transactionDate": string,
-    "transactionWallet": string,
-    "transactionPocket": string,
-    "transactionTag": string,
-    "transactionDetails": string,
-}
+[
+    {
+        "userId": string,
+        "transactionAmount": number,
+        "transactionDate": string,
+        "transactionWallet": string,
+        "transactionPocket": string,
+        "transactionTag": string,
+        "transactionDetails": string,
+    }, 
+    // ...
+]
 ```
 
 ##### GET Fetch One Document: Endpoint
