@@ -74,7 +74,7 @@ all resources under `dev` are still in progress development and not ready for st
 
 3. ENDPOINTS:
 
-#### 1. Fetch Many Document: Endpoint
+##### GET Fetch Many Document: Endpoint
 ```http
 GET /transactions/?bearer=<your_api_token>
 ```
@@ -83,7 +83,7 @@ GET /transactions/?bearer=<your_api_token>
 | :--- | :--- | :--- |
 | `bearer` | `string` | **Required**. Your API Token |
 
-#### Fetch Many Document: Response
+##### Fetch Many Document: Response
 ```javascript
 {
     "userId": string,
@@ -96,7 +96,7 @@ GET /transactions/?bearer=<your_api_token>
 }
 ```
 
-#### 2. Fetch One Document: Endpoint
+##### GET Fetch One Document: Endpoint
 
 ```http
 GET /transactions/<transaction_id>?bearer=<your_api_token>
@@ -107,7 +107,7 @@ GET /transactions/<transaction_id>?bearer=<your_api_token>
 | `transaction_id` | `string` | **Required**. Unique string for every transaction record |
 | `bearer` | `string` | **Required**. Your API Token |
 
-#### Fetch One Document: Response
+##### Fetch One Document: Response
 ```javascript
 {
     "userId": string,
@@ -120,7 +120,7 @@ GET /transactions/<transaction_id>?bearer=<your_api_token>
 }
 ```
 
-#### 3. Post One Document: Endpoint
+##### POST Insert One Document: Endpoint
 
 ```http
 POST /transactions?bearer=<your_api_token>
@@ -130,7 +130,7 @@ POST /transactions?bearer=<your_api_token>
 | :--- | :--- | :--- |
 | `bearer` | `string` | **Required**. Your API Token |
 
-#### Post One Document: Request Body
+##### Insert One Document: Request Body
 ```javascript
 {
     "userId": string,
@@ -143,7 +143,7 @@ POST /transactions?bearer=<your_api_token>
 }
 ```
 
-#### 4. Put/Patch One Document: Endpoint
+##### PUT/PATCH Update One Document: Endpoint
 
 ```http
 PUT /transactions/<transaction_id>?bearer=<your_api_token>
@@ -154,7 +154,7 @@ PUT /transactions/<transaction_id>?bearer=<your_api_token>
 | `transaction_id` | `string` | **Required**. Unique string for every transaction record |
 | `bearer` | `string` | **Required**. Your API Token |
 
-#### Put/Patch One Document: Document
+##### Put/Patch One Document: Document
 ```javascript
 {
     "userId"?: string,
@@ -167,7 +167,7 @@ PUT /transactions/<transaction_id>?bearer=<your_api_token>
 }
 ```
 
-#### 5. Delete One Document: Endpoint
+##### 5. DELETE Remove One Document: Endpoint
 
 ```http
 PUT /transactions/<transaction_id>?bearer=<your_api_token>
@@ -178,7 +178,7 @@ PUT /transactions/<transaction_id>?bearer=<your_api_token>
 | `transaction_id` | `string` | **Required**. Unique string for every transaction record |
 | `bearer` | `string` | **Required**. Your API Token |
 
-#### Delete One Document: Request Body
+##### Delete One Document: Request Body
 ```javascript
 // no request body is required
 ```
