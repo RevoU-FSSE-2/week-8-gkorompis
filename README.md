@@ -35,7 +35,7 @@ The client-side application is hosted by netlify, while the server-side applicat
 * TypeScript: A superset of JavaScript, used for DOM manipulation and managing the application's logic.
 
 And server-side application requires:
-```
+```javascript
 "dependencies": {
    "@types/body-parser": "^1.19.2",
    "@types/cors": "^2.8.13",
@@ -179,14 +179,14 @@ PUT /transactions/<transaction_id>?bearer=<your_api_token>
 // no request body is required
 ```
 
-| Route | Endpoint | UniqueID | Authentication | header | Request body | response |
-| :--- | :--- | :--- | :--- | :--- | :--- |
-| GET many | /transactions | ❎ | **Required**. bearer | ❎ | ❎ | array of document |
-| GET one | /transactions | **Required**. <transaction_id> | **Required**. bearer | ❎ | ❎ | <document object> |
-| POST one | /transactions | ❎ | **Required**. bearer | ❎ | **Required**. <document object> | status |
-| PUT one | /transactions | **Required**. <transaction_id> | **Required**. bearer | ❎ | **Required**. <document object> | status |
-| PATCH one | /transactions | **Required**. <transaction_id> | **Required**. bearer | ❎ | **Required**. <document object> | status |
-| Delete one | /transactions | **Required**. <transaction_id> | **Required**. bearer | ❎ | **Required**. status | status |
+| Route         | Endpoint             | UniqueID               | Authentication      | Header        | Request Body       | Response Description             |
+| :------------ | :------------------- | :--------------------- | :------------------ | :------------ | :----------------- | :-------------------------------- |
+| GET many      | /transactions        | ❎                     | **Required**. bearer | ❎            | ❎                 | Array of transaction documents   |
+| GET one       | /transactions/{id}   | **Required**. `id`     | **Required**. bearer | ❎            | ❎                 | Single transaction document       |
+| POST one      | /transactions        | ❎                     | **Required**. bearer | ❎            | **Required**. JSON | Status of the POST operation      |
+| PUT one       | /transactions/{id}   | **Required**. `id`     | **Required**. bearer | ❎            | **Required**. JSON | Status of the PUT operation       |
+| PATCH one     | /transactions/{id}   | **Required**. `id`     | **Required**. bearer | ❎            | **Required**. JSON | Status of the PATCH operation     |
+| Delete one    | /transactions/{id}   | **Required**. `id`     | **Required**. bearer | ❎            | ❎                 | Status of the DELETE operation    |
 
 #### Summary
 
