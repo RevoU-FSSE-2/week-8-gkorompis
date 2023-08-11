@@ -51,64 +51,144 @@ And server-side application requires:
 ```
 
 ### 3.3 API Documentation
-1. BaseURL:
+```http
+<base URL>/<resource>?bearer=<api_token>
 ```
+
+1. BaseURL:
+```http
 https://2oztga8zl7.execute-api.ap-southeast-3.amazonaws.com/dev
 ```
 
-2. GET endpoints:
-```
-<baseurl>/transactions
-# fetch all documents, require query "bearer=<foo>" try <baseurl>/transactions?bearer=<foo>
+2. Resources:
+| Resource | status | Description | Fields |
+| `transactions` | `prod` | Collection of transactions | 7 |
+| `users` | `dev` | Collection of users | - |
+| `wallets` | `dev` | Collection of wallets | - |
+| `pockets` | `dev` | Collection of pockests| - |
+| `statistics` | `dev` | Collection of finance statistics | - |
 
-/transactions/:ObjectID
-# fetch one document based on ObjectId, try <baseurl>/transactions/64d36c34b2cba04b48d16dce
-```
-<img width="1391" alt="get id" src="https://github.com/RevoU-FSSE-2/week-8-gkorompis/assets/52250424/24253f39-2f9a-4433-8fd2-13d4d20c448e">
+3. Resources:
 
-3. POST endpoint:
+#### 1. Fetch Many Document: Endpoint
+```http
+GET /transactions/?bearer=<your_api_token>
 ```
-<baseurl>/transactions/
-# try <baseurl>/transactions?bearer=<foo>
-# body example:
+
+| Parameter | Type | Description |
+| :--- | :--- | :--- |
+| `bearer` | `string` | **Required**. Your API Token |
+
+#### Fetch Many Document: Response
+```javascript
 {
-   "userId": "gkorompis",
-   "transactionAmount": 130000,
-   "transactionDate": "27-10-2023",
-   "transactionWallet": "Monthly",
-   "transactionPocket": "Entertainment",
-   "transactionTag": "Music Album",
-   "transactionDetails": "1989 TV"
-    }
-#Note your New Object ID 
-```
-<img width="1422" alt="post" src="https://github.com/RevoU-FSSE-2/week-8-gkorompis/assets/52250424/0d396a17-737f-476e-adc7-6e733544a1a7">
-
-4. PUT endpoint:
-```
-<baseurl>/transactions/:ObjectID
-# update one document, require query "bearer=<foo>" try <baseurl>/transactions/<transaction_id>?bearer=<foo>
-# body example:
-{
-   "transactionDetails": "Vacation"
+    "userId": string,
+    "transactionAmount": number,
+    "transactionDate": string,
+    "transactionWallet": string,
+    "transactionPocket": string,
+    "transactionTag": string,
+    "transactionDetails": string,
 }
 ```
-<img width="1385" alt="put" src="https://github.com/RevoU-FSSE-2/week-8-gkorompis/assets/52250424/441a53d8-0384-4ee6-88aa-70e153ef1312">
 
-5. PATCH endpoint:
-```
-<baseurl>/transactions/:ObjectID
-# update one document, require query "bearer=<foo>" try <baseurl>/transactions/<transaction_id>?bearer=<foo>
-```
-<img width="1363" alt="Screen Shot 2023-08-11 at 20 59 30" src="https://github.com/RevoU-FSSE-2/week-8-gkorompis/assets/52250424/f2ce5967-e128-4115-bd14-b08f142966cb">
+#### 2. Fetch One Document: Endpoint
 
-6. DELETE endpoint:
+```http
+GET /transactions/<transaction_id>?bearer=<your_api_token>
 ```
-<baseurl>/transactions/:ObjectID
-# update one document, require query "bearer=<foo>" try <baseurl>/transactions/<transaction_id>?bearer=<foo>
-```
-<img width="1392" alt="delete" src="https://github.com/RevoU-FSSE-2/week-8-gkorompis/assets/52250424/16fc1e9c-3faf-43c3-bde9-f21316f6bdc4">
 
+| Parameter/Query | Type | Description |
+| :--- | :--- | :--- |
+| `transaction_id` | `string` | **Required**. Unique string for every transaction record |
+| `bearer` | `string` | **Required**. Your API Token |
+
+#### Fetch One Document: Response
+```javascript
+{
+    "userId": string,
+    "transactionAmount": number,
+    "transactionDate": string,
+    "transactionWallet": string,
+    "transactionPocket": string,
+    "transactionTag": string,
+    "transactionDetails": string,
+}
+```
+
+#### 3. Post One Document: Endpoint
+
+```http
+POST /transactions?bearer=<your_api_token>
+```
+
+| Parameter/Query | Type | Description |
+| :--- | :--- | :--- |
+| `bearer` | `string` | **Required**. Your API Token |
+
+#### Post One Document: Request Body
+```javascript
+{
+    "userId": string,
+    "transactionAmount": number,
+    "transactionDate": string,
+    "transactionWallet": string,
+    "transactionPocket": string,
+    "transactionTag": string,
+    "transactionDetails": string,
+}
+```
+
+#### 4. Put/Patch One Document: Endpoint
+
+```http
+PUT /transactions/<transaction_id>?bearer=<your_api_token>
+```
+
+| Parameter/Query | Type | Description |
+| :--- | :--- | :--- |
+| `transaction_id` | `string` | **Required**. Unique string for every transaction record |
+| `bearer` | `string` | **Required**. Your API Token |
+
+#### Put/Patch One Document: Document
+```javascript
+{
+    "userId"?: string,
+    "transactionAmount"?: number,
+    "transactionDate"?: string,
+    "transactionWallet"?: string,
+    "transactionPocket"?: string,
+    "transactionTag"?: string,
+    "transactionDetails"?: string,
+}
+```
+
+#### 5. Delete One Document: Endpoint
+
+```http
+PUT /transactions/<transaction_id>?bearer=<your_api_token>
+```
+
+| Parameter/Query | Type | Description |
+| :--- | :--- | :--- |
+| `transaction_id` | `string` | **Required**. Unique string for every transaction record |
+| `bearer` | `string` | **Required**. Your API Token |
+
+#### Delete One Document: Request Body
+```javascript
+// no request body is required
+```
+
+| Route | Endpoint | UniqueID | Authentication | header | Request body | response |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| GET many | /transactions | ❎ | **Required**. bearer | ❎ | ❎ | array of document |
+| GET one | /transactions | **Required**. <transaction_id> | **Required**. bearer | ❎ | ❎ | <document object> |
+| POST one | /transactions | ❎ | **Required**. bearer | ❎ | **Required**. <document object> | status |
+| PUT one | /transactions | **Required**. <transaction_id> | **Required**. bearer | ❎ | **Required**. <document object> | status |
+| PATCH one | /transactions | **Required**. <transaction_id> | **Required**. bearer | ❎ | **Required**. <document object> | status |
+| Delete one | /transactions | **Required**. <transaction_id> | **Required**. bearer | ❎ | **Required**. status | status |
+
+#### Summary
 
 ## 4. Cloud-computing Preparation
 
