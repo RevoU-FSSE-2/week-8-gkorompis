@@ -64,7 +64,7 @@ https://2oztga8zl7.execute-api.ap-southeast-3.amazonaws.com/prod
 
 | Resource       | Status | Description                          | Fields        |
 | :------------- | :----- | :----------------------------------- | :------------ |
-| **transactions** | `prod` | Collection of transaction records   | 7             |
+| **transactions** | `prod` | Collection of transaction records   | `{_id, userId, transactionAmount, transactionDate, transactionWallet, transactionPocket, transactionTag, transactionDetails}`            |
 | **users**        | `dev`  | Collection of user profiles         | None          |
 | **wallets**      | `dev`  | Collection of wallet information    | None          |
 | **pockets**      | `dev`  | Collection of pocket data           | None          |
