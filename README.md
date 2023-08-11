@@ -181,12 +181,12 @@ PUT /transactions/<transaction_id>?bearer=<your_api_token>
 
 | Route         | Endpoint             | UniqueID               | Authentication      | Header        | Request Body       | Response Description             |
 | :------------ | :------------------- | :--------------------- | :------------------ | :------------ | :----------------- | :-------------------------------- |
-| GET many      | /transactions        | ❎                     | **Required**. bearer | ❎            | ❎                 | Array of transaction documents   |
-| GET one       | /transactions/{id}   | **Required**. `id`     | **Required**. bearer | ❎            | ❎                 | Single transaction document       |
-| POST one      | /transactions        | ❎                     | **Required**. bearer | ❎            | **Required**. JSON | Status of the POST operation      |
-| PUT one       | /transactions/{id}   | **Required**. `id`     | **Required**. bearer | ❎            | **Required**. JSON | Status of the PUT operation       |
-| PATCH one     | /transactions/{id}   | **Required**. `id`     | **Required**. bearer | ❎            | **Required**. JSON | Status of the PATCH operation     |
-| Delete one    | /transactions/{id}   | **Required**. `id`     | **Required**. bearer | ❎            | ❎                 | Status of the DELETE operation    |
+| GET many      | /transactions        | -                     | **Required**. bearer | -            | -                 | Array of transaction documents   |
+| GET one       | /transactions/{id}   | **Required**. `id`     | **Required**. bearer | -            | -                 | Single transaction document       |
+| POST one      | /transactions        | -                     | **Required**. bearer | -            | **Required**. JSON | Status of the POST operation      |
+| PUT one       | /transactions/{id}   | **Required**. `id`     | **Required**. bearer | -            | **Required**. JSON | Status of the PUT operation       |
+| PATCH one     | /transactions/{id}   | **Required**. `id`     | **Required**. bearer | -            | **Required**. JSON | Status of the PATCH operation     |
+| Delete one    | /transactions/{id}   | **Required**. `id`     | **Required**. bearer | -            | -                 | Status of the DELETE operation    |
 
 #### Summary
 
