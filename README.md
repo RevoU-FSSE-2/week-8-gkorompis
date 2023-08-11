@@ -55,12 +55,12 @@ And server-side application requires:
 <base URL>/<resource>?bearer=<api_token>
 ```
 
-1. BaseURL:
+1. BaseURL
 ```http
 https://2oztga8zl7.execute-api.ap-southeast-3.amazonaws.com/prod
 ```
 
-2. Resources:
+2. RESOURCES
 
 | Resource       | Status | Description                          | Fields        |
 | :------------- | :----- | :----------------------------------- | :------------ |
@@ -72,7 +72,7 @@ https://2oztga8zl7.execute-api.ap-southeast-3.amazonaws.com/prod
 
 all resources under `dev` are still in progress development and not ready for staging or public access.
 
-3. Resources:
+3. ENDPOINTS:
 
 #### 1. Fetch Many Document: Endpoint
 ```http
