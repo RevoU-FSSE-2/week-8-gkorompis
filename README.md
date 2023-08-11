@@ -1,4 +1,4 @@
-# [How Much?](https://64d639a9ff6c0b67556ba24b--stellar-gaufre-002876.netlify.app/)
+# [How Much?](https://64d639a9ff6c0b67556ba24b--stellar-gaufre-002876.netlify.app/) A Financial Management App Project
 
 <img width="1397" alt="hm-home" src="https://github.com/RevoU-FSSE-2/week-8-gkorompis/assets/52250424/d39ed479-840e-4200-8dec-60ab5fad188d">
 
@@ -282,6 +282,7 @@ chmod 777 ../workflow/aws_lambda_deployment.sh
 6. Click "Create API", choose api type "REST API" (not private), and the click "Build".
 7. After naming your API, click "create api", and then create resource.
 <img width="1415" alt="5 2 7 1" src="https://github.com/RevoU-FSSE-2/week-8-gkorompis/assets/52250424/4e0109c7-39b2-4a6e-af29-26c078d9e179">
+
 <img width="1399" alt="5 2 7" src="https://github.com/RevoU-FSSE-2/week-8-gkorompis/assets/52250424/ef62dfbc-1483-4ccc-b369-e9c16cf6f4c0">
 
 8. Tick configure as proxy resource, as well as enable API Gateway CORS, and then click "Create resource".
