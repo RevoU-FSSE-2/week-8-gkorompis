@@ -61,6 +61,7 @@ https://2oztga8zl7.execute-api.ap-southeast-3.amazonaws.com/prod
 ```
 
 2. Resources:
+
 | Resource       | Status | Description                          | Fields        |
 | :------------- | :----- | :----------------------------------- | :------------ |
 | **transactions** | `prod` | Collection of transaction records   | 7             |
