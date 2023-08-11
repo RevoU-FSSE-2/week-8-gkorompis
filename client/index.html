@@ -14,8 +14,12 @@
             <div class="dropdown">
                 <button class="dropbtn dropbtn-display">Records</button>
                 <div class="dropdown-content">
-                    <a class="nav-links" href="./html/Records/cashflow.html">Transactions</a>
-                    <a class="nav-links" href="#">Mutation</a>
+                    <a class="nav-links" href="./html/transactions.html">Transactions</a>
+                    <a class="nav-links" href="#">
+                        <div class="column-start"><img class="dropdown-icon" src="./assets/padlock.png" />
+                            <p>Mutation</p>
+                        </div>
+                    </a>
                 </div>
             </div>
         </header>
@@ -23,9 +27,7 @@
             <section class="section-service-board-header fixed-top">
                 <h1 class="board-header-title">How Much?</h1>
                 <div class="board-bar-span"></div>
-                <section class="board-bar">
-                    <button id="btn-new-transaction" class="board-btn">New Transaction</button>
-                </section>
+                
             </section>
             <section id="section-service-board-modal" class="section-service-board-modal">
                 <div id="board-modal-container" class="board-modal-container board-modal-container-hide">
@@ -65,66 +67,16 @@
             </section>
             <section class="section-service-board-content">
                 <section class="board-content-section board-transactions">
-                    <h1 class="board-section-title">Latest Transactions</h1>
-                    <div id="board-card-transactions" class="board-card-transactions">
-                        <!-- <h1>card</h1> -->
-                    </div>
-                </section>
-                <section class="board-content-section board-stats">
-                    <h1 class="board-section-title">How Much summary</h1>
-                    <div class="stats-container">
-                        <div class="board-section-stats stats-wallet">
-                            <h1>Wallet Stats</h1>
-                            <div class="wallets-container">
-                                <div class="wallet">
-                                    <p class="wallet-title">Wallet A</p>
-                                    <div class="wallet-bar-container">
-                                        <div class="wallet-bar"></div>
-                                        <div class="wallet-bar"></div>
-                                        <div class="wallet-bar"></div>
-                                        <div class="wallet-bar"></div>
-                                    </div>
-                                </div>
-                                <div class="wallet">
-                                    <p class="wallet-title">Wallet B</p>
-                                    <div class="wallet-bar-container">
-                                        <div class="wallet-bar"></div>
-                                        <div class="wallet-bar"></div>
-                                        <div class="wallet-bar"></div>
-                                        <div class="wallet-bar"></div>
-                                    </div>
-                                </div>
-                                <div class="wallet">
-                                    <p class="wallet-title">Wallet C</p>
-                                        <div class="wallet-bar-container">
-                                        <div class="wallet-bar"></div>
-                                        <div class="wallet-bar"></div>
-                                        <div class="wallet-bar"></div>
-                                        <div class="wallet-bar"></div>
-                                    </div>
-                                </div>
-                                <div class="wallet">
-                                    <p class="wallet-title">Wallet D</p>
-                                    <div class="wallet-bar-container">
-                                        <div class="wallet-bar"></div>
-                                        <div class="wallet-bar"></div>
-                                        <div class="wallet-bar"></div>
-                                        <div class="wallet-bar"></div>
-                                    </div>
-                                </div>    
-                            </div>
+                    <div id="content-empty" class="">
+                        <div>
+                            <h2 class="tag-line-title">HowMuch?</h2>
+                            <h3 class="tag-line-desc">every spend counts.</h3>
+                            <section class="tag-line-bar">
+                                <a id="btn-new-transaction" class="tag-line-btn" href="./html/transactions.html">New Transaction</a>
+                            </section>
                         </div>
-                        <div class="board-section-stats stats-pocket">
-                            <h1 class="stats-pocket-title">Pocket Stats</h1>
-                            <div class="pockets-container">
-                                <div class="pocket">
-                                    <p class="pocket-title">Pocket Spending</p>
-                                    <div class="pocket-bar-container">
-                                        <div class="pie"></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        
+                        <img class="background-icon" src="./assets/money.png" />
                     </div>
                 </section>
             </section>
@@ -133,7 +85,7 @@
     <!-- <footer>
         <a href="https://www.flaticon.com/free-icons/home" title="home icons">Home icons created by Dave Gandy - Flaticon</a>
     </footer> -->
-    <script src="./dist/transactions.js"></script>
+    <!-- <script src="./dist/transactions/transactions.js"></script> -->
 </body>
 
 </html>

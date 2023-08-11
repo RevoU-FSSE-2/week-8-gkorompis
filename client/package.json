@@ -18,6 +18,8 @@
   },
   "homepage": "https://github.com/RevoU-FSSE-2/week-8-gkorompis#readme",
   "dependencies": {
+    "@types/axios": "^0.14.0",
+    "axios": "^1.4.0",
     "typescript": "^5.1.6"
   }
 }

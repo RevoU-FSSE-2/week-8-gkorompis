@@ -1,10 +1,13 @@
-# [How Much?](https://64cd3acbdad64a3cc32bab3c--playful-pavlova-3da57a.netlify.app)
+# [How Much?](https://64d639a9ff6c0b67556ba24b--stellar-gaufre-002876.netlify.app/)
 
-<img width="1417" alt="home" src="https://github.com/RevoU-FSSE-2/week-7-gkorompis/assets/52250424/b222270e-9a3a-4323-a03d-bb188b40a405">
+<img width="1397" alt="hm-home" src="https://github.com/RevoU-FSSE-2/week-8-gkorompis/assets/52250424/946952cd-2b1f-41f9-9ad8-5ba80d22d396">
 
 ## 1. Introduction
 
-How Much? is a user-friendly Finance App designed to help you track your cash flow effectively. It offers a simple and intuitive interface to record your income and expenses, providing you with valuable insights into your financial habits.
+[How Much?](https://64d639a9ff6c0b67556ba24b--stellar-gaufre-002876.netlify.app/) is a user-friendly Finance App designed to help you track your cash flow effectively. It offers a simple and intuitive interface to record your income and expenses, providing you with valuable insights into your financial habits.
+
+<img width="1398" alt="hm-navbar" src="https://github.com/RevoU-FSSE-2/week-8-gkorompis/assets/52250424/0200142f-a3a1-4c33-a8ad-aa0f66b4759b">
+
 
 
 ## 2. Documentation Contents
@@ -13,14 +16,39 @@ How Much? is a user-friendly Finance App designed to help you track your cash fl
 2. Documentation Contents
 3. Application Overview: Main Feature, Dependencies, and API Documentation
 4. Cloud-computing Preparation
-5. Client-side Build and Deployment
-6. Server-side Build and Deployment
+5. Server-side Build and Deployment
+6. Client-side Build and Deployment
 
 
 ## 3. Application Overview
 
 ### 3.1 Main Feature
+Tracking Transactions: allow to keep tracking your spending, and give visual projection how much money remains in your customized wallet.
+<img width="1385" alt="hm-transactions" src="https://github.com/RevoU-FSSE-2/week-8-gkorompis/assets/52250424/e9a59afb-01bc-4f71-8f59-3159dd51dcdb">
+<img width="1379" alt="hm-form" src="https://github.com/RevoU-FSSE-2/week-8-gkorompis/assets/52250424/0d5cb773-8a24-4502-a39f-1e5455ae9338">
+
 ### 3.2 Dependencies
+The client-side application is hosted by netlify, while the server-side application is hosted by AWS API Gateway. This client-side application requires:
+* HTML: The standard markup language for creating the structure of the app's user interface.
+* CSS: Cascading Style Sheets for styling the app and ensuring a visually appealing user experience.
+* TypeScript: A superset of JavaScript, used for DOM manipulation and managing the application's logic.
+
+And server-side application requires:
+```
+"dependencies": {
+   "@types/body-parser": "^1.19.2",
+   "@types/cors": "^2.8.13",
+   "@types/express": "^4.17.17",
+   "body-parser": "^1.20.2",
+   "cors": "^2.8.5",
+   "dotenv": "^16.3.1",
+   "express": "^4.18.2",
+   "mongodb": "^5.7.0",
+   "serverless-http": "^3.2.0",
+   "typescript": "^5.1.6"
+}
+```
+
 ### 3.3 API Documentation
 1. BaseURL:
 ```
@@ -57,7 +85,7 @@ https://2oztga8zl7.execute-api.ap-southeast-3.amazonaws.com/dev
 4. PUT endpoint:
 ```
 <baseurl>/transactions/:ObjectID
-# update one document, require query "bearer=<foo>" try <baseurl>/transactions/<foo>?bearer=<foo>
+# update one document, require query "bearer=<foo>" try <baseurl>/transactions/<transaction_id>?bearer=<foo>
 # body example:
 {
    "transactionDetails": "Vacation"
@@ -65,10 +93,17 @@ https://2oztga8zl7.execute-api.ap-southeast-3.amazonaws.com/dev
 ```
 <img width="1385" alt="put" src="https://github.com/RevoU-FSSE-2/week-8-gkorompis/assets/52250424/441a53d8-0384-4ee6-88aa-70e153ef1312">
 
-5. DELETE endpoint:
+5. PATCH endpoint:
 ```
 <baseurl>/transactions/:ObjectID
-# update one document, require query "bearer=<foo>" try <baseurl>/transactions/<foo>?bearer=<foo>
+# update one document, require query "bearer=<foo>" try <baseurl>/transactions/<transaction_id>?bearer=<foo>
+```
+<img width="1363" alt="Screen Shot 2023-08-11 at 20 59 30" src="https://github.com/RevoU-FSSE-2/week-8-gkorompis/assets/52250424/f2ce5967-e128-4115-bd14-b08f142966cb">
+
+6. DELETE endpoint:
+```
+<baseurl>/transactions/:ObjectID
+# update one document, require query "bearer=<foo>" try <baseurl>/transactions/<transaction_id>?bearer=<foo>
 ```
 <img width="1392" alt="delete" src="https://github.com/RevoU-FSSE-2/week-8-gkorompis/assets/52250424/16fc1e9c-3faf-43c3-bde9-f21316f6bdc4">
 
@@ -176,3 +211,7 @@ chmod 777 ../workflow/aws_lambda_deployment.sh
 
 
 ## 6. Client-side Build and Deployment
+Deployment is achieved by following these simple steps:
+1. Compress client-side directory containing all the frontend files
+2. Drag and drop to netfliy
+3. Deploy
