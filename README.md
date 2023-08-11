@@ -57,16 +57,19 @@ And server-side application requires:
 
 1. BaseURL:
 ```http
-https://2oztga8zl7.execute-api.ap-southeast-3.amazonaws.com/dev
+https://2oztga8zl7.execute-api.ap-southeast-3.amazonaws.com/prod
 ```
 
 2. Resources:
-| Resource | status | Description | Fields |
-| `transactions` | `prod` | Collection of transactions | 7 |
-| `users` | `dev` | Collection of users | - |
-| `wallets` | `dev` | Collection of wallets | - |
-| `pockets` | `dev` | Collection of pockests| - |
-| `statistics` | `dev` | Collection of finance statistics | - |
+| Resource       | Status | Description                          | Fields        |
+| :------------- | :----- | :----------------------------------- | :------------ |
+| **transactions** | `prod` | Collection of transaction records   | 7             |
+| **users**        | `dev`  | Collection of user profiles         | None          |
+| **wallets**      | `dev`  | Collection of wallet information    | None          |
+| **pockets**      | `dev`  | Collection of pocket data           | None          |
+| **statistics**   | `dev`  | Collection of finance statistics   | None          |
+
+all resources under `dev` are still in progress development and not ready for staging or public access.
 
 3. Resources:
 
