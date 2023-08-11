@@ -71,13 +71,14 @@ https://2oztga8zl7.execute-api.ap-southeast-3.amazonaws.com/dev
 # try <baseurl>/transactions?bearer=<foo>
 # body example:
 {
-   "transactionAmount": 133,
-   "transactionDate": "13-08-2023",
-   "transactionWallet": "Monthly Income",
-   "transactionPocket": "Holiday",
-   "transactionTag": "Jalan-jalan",
-   "transactionDetails": "Have fun"
-}
+   "userId": "gkorompis",
+   "transactionAmount": 130000,
+   "transactionDate": "27-10-2023",
+   "transactionWallet": "Monthly",
+   "transactionPocket": "Entertainment",
+   "transactionTag": "Music Album",
+   "transactionDetails": "1989 TV"
+    }
 #Note your New Object ID 
 ```
 <img width="1422" alt="post" src="https://github.com/RevoU-FSSE-2/week-8-gkorompis/assets/52250424/0d396a17-737f-476e-adc7-6e733544a1a7">
