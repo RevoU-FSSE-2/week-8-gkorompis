@@ -194,8 +194,6 @@ PUT /transactions/<transaction_id>?bearer=<your_api_token>
 | PATCH one     | /transactions/{id}   | **Required**. `id`     | **Required**. bearer | -            | **Required**. JSON | Status of the PATCH operation     |
 | Delete one    | /transactions/{id}   | **Required**. `id`     | **Required**. bearer | -            | -                 | Status of the DELETE operation    |
 
-#### Summary
-
 ## 4. Cloud-computing Preparation
 
 This application requires several pre-deployment set ups. In order to promote instant provision and ensure a consistent dependencies and deployment, AWS cloud virtual machine (EC2) will be used to run docker for all necessary pre-deployment build. 
