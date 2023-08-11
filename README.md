@@ -24,6 +24,7 @@
 
 ### 3.1 Main Feature
 Tracking Transactions: allow to keep tracking your spending, and give visual projection how much money remains in your customized wallet.
+
 <img width="1385" alt="hm-transactions" src="https://github.com/RevoU-FSSE-2/week-8-gkorompis/assets/52250424/e9a59afb-01bc-4f71-8f59-3159dd51dcdb">
 <img width="1379" alt="hm-form" src="https://github.com/RevoU-FSSE-2/week-8-gkorompis/assets/52250424/0d5cb773-8a24-4502-a39f-1e5455ae9338">
 
