@@ -1,12 +1,12 @@
 # [How Much?](https://64d639a9ff6c0b67556ba24b--stellar-gaufre-002876.netlify.app/)
+
 <img width="1397" alt="hm-home" src="https://github.com/RevoU-FSSE-2/week-8-gkorompis/assets/52250424/d39ed479-840e-4200-8dec-60ab5fad188d">
 
 ## 1. Introduction
 
 [How Much?](https://64d639a9ff6c0b67556ba24b--stellar-gaufre-002876.netlify.app/) is a user-friendly Finance App designed to help you track your cash flow effectively. It offers a simple and intuitive interface to record your income and expenses, providing you with valuable insights into your financial habits.
 
-<img width="1398" alt="hm-navbar" src="https://github.com/RevoU-FSSE-2/week-8-gkorompis/assets/52250424/0200142f-a3a1-4c33-a8ad-aa0f66b4759b">
-
+<img width="1398" alt="hm-navbar" src="https://github.com/RevoU-FSSE-2/week-8-gkorompis/assets/52250424/ebe0da6c-6faa-4f48-8140-5642b4124121">
 
 
 ## 2. Documentation Contents
@@ -24,8 +24,9 @@
 ### 3.1 Main Feature
 Tracking Transactions: allow to keep tracking your spending, and give visual projection how much money remains in your customized wallet.
 
-<img width="1385" alt="hm-transactions" src="https://github.com/RevoU-FSSE-2/week-8-gkorompis/assets/52250424/e9a59afb-01bc-4f71-8f59-3159dd51dcdb">
-<img width="1379" alt="hm-form" src="https://github.com/RevoU-FSSE-2/week-8-gkorompis/assets/52250424/0d5cb773-8a24-4502-a39f-1e5455ae9338">
+<img width="1385" alt="hm-transactions" src="https://github.com/RevoU-FSSE-2/week-8-gkorompis/assets/52250424/503de841-b11f-444a-8d4c-46df5d1a7459">
+
+<img width="1379" alt="hm-form" src="https://github.com/RevoU-FSSE-2/week-8-gkorompis/assets/52250424/24b6ee78-694b-45f5-8517-29a4b4655334">
 
 ### 3.2 Dependencies
 The client-side application is hosted by netlify, while the server-side application is hosted by AWS API Gateway. This client-side application requires:
