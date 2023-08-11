@@ -30,7 +30,7 @@ https://2oztga8zl7.execute-api.ap-southeast-3.amazonaws.com/dev
 2. GET endpoints:
 ```
 <baseurl>/transactions
-# fetch all documents, require query "bearer=true" try <baseurl>/transactions?bearer=true
+# fetch all documents, require query "bearer=<foo>" try <baseurl>/transactions?bearer=<foo>
 
 /transactions/:ObjectID
 # fetch one document based on ObjectId, try <baseurl>/transactions/64d36c34b2cba04b48d16dce
@@ -40,7 +40,7 @@ https://2oztga8zl7.execute-api.ap-southeast-3.amazonaws.com/dev
 3. POST endpoint:
 ```
 <baseurl>/transactions/
-# try <baseurl>/transactions?bearer=true
+# try <baseurl>/transactions?bearer=<foo>
 # body example:
 {
    "transactionAmount": 133,
@@ -57,7 +57,7 @@ https://2oztga8zl7.execute-api.ap-southeast-3.amazonaws.com/dev
 4. PUT endpoint:
 ```
 <baseurl>/transactions/:ObjectID
-# update one document, require query "bearer=true" try <baseurl>/transactions/<foo>?bearer=true
+# update one document, require query "bearer=<foo>" try <baseurl>/transactions/<foo>?bearer=<foo>
 # body example:
 {
    "transactionDetails": "Vacation"
@@ -68,7 +68,7 @@ https://2oztga8zl7.execute-api.ap-southeast-3.amazonaws.com/dev
 5. DELETE endpoint:
 ```
 <baseurl>/transactions/:ObjectID
-# update one document, require query "bearer=true" try <baseurl>/transactions/<foo>?bearer=true
+# update one document, require query "bearer=<foo>" try <baseurl>/transactions/<foo>?bearer=<foo>
 ```
 <img width="1392" alt="delete" src="https://github.com/RevoU-FSSE-2/week-8-gkorompis/assets/52250424/16fc1e9c-3faf-43c3-bde9-f21316f6bdc4">
 

@@ -9,27 +9,30 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 };
 import { ObjectId } from 'mongodb';
 import MdbCrud from '../db/mdbCrud.js';
+import "../loadenv.js";
 const crud = new MdbCrud();
 const { mdbDeleteOne, mdbFetchMany, mdbInsertOne, mdbUpdateOne } = crud;
+const token = process.env.API_SECRET;
 export const transactionGetController = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     // get uri queries
     const query = req.query || {};
     const { bearer } = query;
-    if (bearer) {
+    if (bearer == token) {
         delete query.bearer;
         // get from database
         const payload = yield mdbFetchMany("transactions", query);
         res.json(payload);
     }
     else {
-        res.json({ error: "no bearer" });
+        res.status(401).json({ error: "unauthorized token" });
     }
+    ;
 });
 export const transactionGetIdController = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     // get uri queries
     const requestQuery = req.query || {};
     const { bearer } = requestQuery;
-    if (bearer) {
+    if (bearer == token) {
         // get unique id from req params
         const { transactionId } = req.params;
         const query = { _id: new ObjectId(transactionId) } || {};
@@ -46,7 +49,7 @@ export const transactionPostController = (req, res) => __awaiter(void 0, void 0,
         // get uri queries
         const requestQuery = req.query || {};
         const { bearer } = requestQuery;
-        if (bearer) {
+        if (bearer == token) {
             const requestBody = req.body;
             const transactionAmount = parseInt(requestBody["transactionAmount"]);
             const newTransaction = Object.assign(Object.assign({}, requestBody), { transactionAmount });
@@ -68,7 +71,7 @@ export const transactionPutController = (req, res) => __awaiter(void 0, void 0, 
         // get uri queries
         const routeQuery = req.query || {};
         const { bearer } = routeQuery;
-        if (bearer) {
+        if (bearer == token) {
             // get unique id from req params
             const { transactionId } = req.params;
             const query = { _id: new ObjectId(transactionId) } || {};
@@ -90,7 +93,7 @@ export const transactionPatchController = (req, res) => __awaiter(void 0, void 0
         // get uri queries
         const routeQuery = req.query || {};
         const { bearer } = routeQuery;
-        if (bearer) {
+        if (bearer == token) {
             // get unique id from req params
             const { transactionId } = req.params;
             const query = { _id: new ObjectId(transactionId) } || {};
@@ -112,7 +115,7 @@ export const transactionDeleteController = (req, res) => __awaiter(void 0, void 
         // get uri queries
         const routeQuery = req.query || {};
         const { bearer } = routeQuery;
-        if (bearer) {
+        if (bearer == token) {
             // get unique id from req params
             const { transactionId } = req.params;
             const query = { _id: new ObjectId(transactionId) } || {};

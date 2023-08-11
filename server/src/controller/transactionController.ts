@@ -3,28 +3,31 @@ import {ObjectId} from 'mongodb';
 import {Request, Response} from 'express';
 import { TransactionRouteQuery, NewTransactionPayload, RequestBodyPayload } from '../types.js';
 import MdbCrud from '../db/mdbCrud.js';
+import "../loadenv.js";
 const crud = new MdbCrud();
 const {mdbDeleteOne, mdbFetchMany, mdbInsertOne, mdbUpdateOne} = crud;
+const token = process.env.API_SECRET;
 
 export const transactionGetController = async (req:Request, res:Response)=>{
     // get uri queries
     const query = req.query || {} as TransactionRouteQuery;
     const {bearer} = query;
-    if(bearer){
+    if(bearer==token){
         delete query.bearer;
         // get from database
         const payload = await mdbFetchMany("transactions", query);
         res.json(payload);
     } else {
-        res.json({error: "no bearer"})
-    }
+        res.status(401).json({error: "unauthorized token"})
+    };
+
 }
 
 export const transactionGetIdController =  async (req:Request, res:Response)=>{
     // get uri queries
     const requestQuery = req.query || {} as TransactionRouteQuery;
     const {bearer} = requestQuery;
-    if(bearer){
+    if(bearer==token){
         // get unique id from req params
         const {transactionId} = req.params;
         const query = {_id: new ObjectId(transactionId)} || {};
@@ -41,7 +44,7 @@ export const transactionPostController = async (req:Request, res:Response)=>{
          // get uri queries
         const requestQuery = req.query || {} as TransactionRouteQuery;
         const {bearer} = requestQuery;
-        if(bearer){
+        if(bearer==token){
             const requestBody:RequestBodyPayload = req.body;
             const transactionAmount = parseInt(requestBody["transactionAmount"]);
             const newTransaction:NewTransactionPayload = {
@@ -65,7 +68,7 @@ export const transactionPutController = async (req:Request, res:Response)=>{
         // get uri queries
         const routeQuery = req.query || {} as TransactionRouteQuery;
         const {bearer} = routeQuery;
-        if(bearer){
+        if(bearer==token){
             // get unique id from req params
             const {transactionId} = req.params;
             const query = {_id: new ObjectId(transactionId)} || {};
@@ -87,7 +90,7 @@ export const transactionPatchController = async (req:Request, res:Response)=>{
         const routeQuery = req.query || {} as TransactionRouteQuery;
         const {bearer} = routeQuery;
 
-        if(bearer){
+        if(bearer==token){
             // get unique id from req params
             const {transactionId} = req.params;
             const query = {_id: new ObjectId(transactionId)} || {};
@@ -109,7 +112,7 @@ export const transactionDeleteController = async (req:Request, res:Response)=>{
         // get uri queries
         const routeQuery = req.query || {} as TransactionRouteQuery;
         const {bearer} = routeQuery;
-        if(bearer){
+        if(bearer==token){
             // get unique id from req params
             const {transactionId} = req.params;
             const query = {_id: new ObjectId(transactionId)} || {};
