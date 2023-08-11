@@ -1,5 +1,3 @@
-// import express from 'express';
-// import { MongoClient, Db, Collection, InsertOneResult} from 'mongodb';
 var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
     function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
     return new (P || (P = Promise))(function (resolve, reject) {
@@ -33,9 +31,6 @@ function connectToMongoDB() {
         }
     });
 }
-// interface InsertResultWithOps<T> extends InsertOneResult<T> {
-//   ops: T[];
-// }
 const mdbFetchMany = (collection, query) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         // Connect to MongoDB

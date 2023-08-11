@@ -1,5 +1,3 @@
-// import express from 'express';
-// import { MongoClient, Db, Collection, InsertOneResult} from 'mongodb';
 var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
     function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
     return new (P || (P = Promise))(function (resolve, reject) {
@@ -9,7 +7,6 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
-// Import the required modules
 import { MongoClient } from 'mongodb';
 import '../loadenv.js';
 // console.log(process.env.TEST_VAR);
@@ -33,9 +30,6 @@ function connectToMongoDB() {
         }
     });
 }
-// interface InsertResultWithOps<T> extends InsertOneResult<T> {
-//   ops: T[];
-// }
 const mdbUpdateOne = (collection, query, updatePayload) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         // Connect to MongoDB

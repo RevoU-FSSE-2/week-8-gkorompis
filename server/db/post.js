@@ -7,10 +7,8 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
-// Import the required modules
 import { MongoClient } from 'mongodb';
 import '../loadenv.js';
-// console.log(process.env.TEST_VAR);
 const SECRET = process.env.MONGODB_SECRET;
 // Define a function to connect to the MongoDB database
 function connectToMongoDB() {

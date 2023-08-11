@@ -2,22 +2,14 @@ import mdbDeleteOne from "./delete.js";
 import mdbUpdateOne from "./put.js";
 import mdbInsertOne from "./post.js";
 import mdbFetchMany from "./get.js"; 
-import {DeleteResult, ObjectId, UpdateResult, WithId} from "mongodb";
+import {DeleteResult, UpdateResult, WithId} from "mongodb";
 
-type NewTransactionPayload = {
-  _id?: ObjectId,
-   transactionAmount?: number;
-   transactionDate?: string;
-   transactionWallet?: string;
-   transactionPocket?: string;
-   transactionTag?: string;
-   transactionDetails?: string;
-}
+import { NewTransactionPayload, MultiFieldQuery, UniqueIdQuery } from "../types.js";
 class MdbCrud {
-    public mdbDeleteOne:(collection: string, query: NewTransactionPayload) => Promise<DeleteResult | undefined>;
-    public mdbUpdateOne:(collection: string, query: NewTransactionPayload, updatePayload: NewTransactionPayload) => Promise<UpdateResult<NewTransactionPayload> | undefined>;
+    public mdbDeleteOne:(collection: string, query: UniqueIdQuery) => Promise<DeleteResult | undefined>;
+    public mdbUpdateOne:(collection: string, query: UniqueIdQuery, updatePayload: NewTransactionPayload) => Promise<UpdateResult<NewTransactionPayload> | undefined>;
     public mdbInsertOne:(collection: string, payload: NewTransactionPayload) => Promise<void>;
-    public mdbFetchMany:(collection: string, query: NewTransactionPayload) => Promise<WithId<NewTransactionPayload>[] | undefined>;
+    public mdbFetchMany:(collection: string, query: MultiFieldQuery) => Promise<WithId<MultiFieldQuery>[] | undefined>
     constructor(){
         this.mdbDeleteOne = mdbDeleteOne;
         this.mdbUpdateOne = mdbUpdateOne;

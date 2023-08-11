@@ -1,14 +1,8 @@
-// import express from 'express';
-// import { MongoClient, Db, Collection, InsertOneResult} from 'mongodb';
-
-
-// Import the required modules
-import { MongoClient, Db, Collection, ObjectId} from 'mongodb';
+import { MongoClient, Db, Collection} from 'mongodb';
 import '../loadenv.js'
+import { UniqueIdQuery,NewTransactionPayload } from '../types.js';
 // console.log(process.env.TEST_VAR);
 const SECRET = process.env.MONGODB_SECRET;
-
-
 
 // Define a function to connect to the MongoDB database
 async function connectToMongoDB(): Promise<Db> {
@@ -29,21 +23,7 @@ try {
   }
 }
 
-// Define an interface for the data you want to store in the collection
-type NewTransactionPayload = {
-  _id?: ObjectId,
-   transactionAmount?: number;
-   transactionDate?: string;
-   transactionWallet?: string;
-   transactionPocket?: string;
-   transactionTag?: string;
-   transactionDetails?: string;
-}
-// interface InsertResultWithOps<T> extends InsertOneResult<T> {
-//   ops: T[];
-// }
-
-const mdbUpdateOne = async (collection:string, query:NewTransactionPayload, updatePayload: NewTransactionPayload)=>{
+const mdbUpdateOne = async (collection:string, query:UniqueIdQuery, updatePayload: NewTransactionPayload)=>{
   try {
     // Connect to MongoDB
     console.log(">>>connecting to mongodb")

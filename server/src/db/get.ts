@@ -1,14 +1,10 @@
-// import express from 'express';
-// import { MongoClient, Db, Collection, InsertOneResult} from 'mongodb';
-
+import { MultiFieldQuery } from '../types.js';
 
 // Import the required modules
-import { MongoClient, Db, Collection, FindCursor, WithId, ObjectId} from 'mongodb';
+import { MongoClient, Db, Collection, ObjectId} from 'mongodb';
 import '../loadenv.js'
 // console.log(process.env.TEST_VAR);
 const SECRET = process.env.MONGODB_SECRET;
-
-
 
 // Define a function to connect to the MongoDB database
 async function connectToMongoDB(): Promise<Db> {
@@ -29,21 +25,7 @@ try {
   }
 }
 
-// Define an interface for the data you want to store in the collection
-type NewTransactionPayload = {
-  _id?: ObjectId,
-   transactionAmount?: number;
-   transactionDate?: string;
-   transactionWallet?: string;
-   transactionPocket?: string;
-   transactionTag?: string;
-   transactionDetails?: string;
-}
-// interface InsertResultWithOps<T> extends InsertOneResult<T> {
-//   ops: T[];
-// }
-
-const mdbFetchMany = async (collection:string, query:NewTransactionPayload)=>{
+const mdbFetchMany = async (collection:string, query:MultiFieldQuery)=>{
   try {
     // Connect to MongoDB
     console.log(">>>connecting to mongodb")
@@ -51,7 +33,7 @@ const mdbFetchMany = async (collection:string, query:NewTransactionPayload)=>{
 
     // Get the collection to work with
     console.log(`>>>connecting to ${collection} collection`)
-    const newCollection: Collection<NewTransactionPayload> = await db.collection<NewTransactionPayload>(collection);
+    const newCollection: Collection<MultiFieldQuery> = await db.collection<MultiFieldQuery>(collection);
 
     console.log('>>>fetching collection:', collection );
     // console.log(usersCollection);

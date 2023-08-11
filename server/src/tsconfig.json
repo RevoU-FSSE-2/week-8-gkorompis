@@ -107,5 +107,5 @@
     "skipLibCheck": true                                 /* Skip type checking all .d.ts files. */
   },
   "include": ["./index.ts", "./routes/*.ts", "./db/*.ts"],
-  "exclude": ["../node_modules", "./db/db/*"]
+  "exclude": ["../node_modules", "./db/db/*", "./types.ts"]
 }

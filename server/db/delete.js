@@ -1,5 +1,3 @@
-// import express from 'express';
-// import { MongoClient, Db, Collection, InsertOneResult} from 'mongodb';
 var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
     function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
     return new (P || (P = Promise))(function (resolve, reject) {
@@ -33,9 +31,6 @@ function connectToMongoDB() {
         }
     });
 }
-// interface InsertResultWithOps<T> extends InsertOneResult<T> {
-//   ops: T[];
-// }
 const mdbDeleteOne = (collection, query) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         // Connect to MongoDB
@@ -44,12 +39,11 @@ const mdbDeleteOne = (collection, query) => __awaiter(void 0, void 0, void 0, fu
         // Get the collection to work with
         console.log(`>>>connecting to ${collection} collection`);
         const newCollection = yield db.collection(collection);
-        console.log('>>>updating document for query:', query);
+        console.log('>>>deleting document for query:', query);
         // console.log(usersCollection);
         const fetch = newCollection.deleteOne(query);
         const documents = yield fetch;
-        // const cursor = newCollection.find({});
-        console.log('>>>fetch success', documents);
+        console.log('>>>delete success', documents);
         return documents;
     }
     catch (err) {
