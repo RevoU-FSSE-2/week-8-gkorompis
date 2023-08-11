@@ -182,7 +182,7 @@ PUT /transactions/<transaction_id>?bearer=<your_api_token>
 ```javascript
 // no request body is required
 ```
-##### Endpoints Summary
+##### 6. Endpoints Summary
 
 | Route         | Endpoint             | UniqueID               | Authentication      | Header        | Request Body       | Response Description             |
 | :------------ | :------------------- | :--------------------- | :------------------ | :------------ | :----------------- | :-------------------------------- |
